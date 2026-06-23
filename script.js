@@ -1,33 +1,28 @@
-function scrollToSection(id){
-    document.getElementById(id).scrollIntoView({
-        behavior:"smooth"
-    });
-}
-
-/* Fade In Animation */
-
-const sections = document.querySelectorAll(".section");
+const sections = document.querySelectorAll(
+'.hero, .image-section, .text-section'
+);
 
 const observer = new IntersectionObserver((entries)=>{
 
-    entries.forEach(entry=>{
+entries.forEach(entry=>{
 
-        if(entry.isIntersecting){
+if(entry.isIntersecting){
 
-            entry.target.style.opacity="1";
-            entry.target.style.transform="translateY(0)";
-        }
+entry.target.style.opacity='1';
+entry.target.style.transform='translateY(0)';
 
-    });
+}
+
+});
 
 },{threshold:0.15});
 
 sections.forEach(section=>{
 
-    section.style.opacity="0";
-    section.style.transform="translateY(40px)";
-    section.style.transition="all .9s ease";
+section.style.opacity='0';
+section.style.transform='translateY(50px)';
+section.style.transition='all 1.1s ease';
 
-    observer.observe(section);
+observer.observe(section);
 
 });
